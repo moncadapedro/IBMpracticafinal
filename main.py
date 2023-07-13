@@ -33,12 +33,25 @@ def imprimir_suma_columnas(suma_columnas):
         print(f"Columna {i + 1}: {suma}")
 
 # Obtenemos el tamaño de la matriz del usuario
-n_a = int(input("Ingrese el tamaño de la matriz dentro del rango(0,9): "))
-#Comprobamos que la numeracion introducida este dentro del rango
-if n_a in range(0, 9):
+
+#Comprobamos que la numeracion introducida este dentro del rango y sea un numero entero
+
+while True: #Con este while nos aseguramos que es un numero entero
+    n_entero = input ("ingrese el valor de la matriz dentro del rango (0,9) que quiere calcular siendo este un numero entero: ")
+    try:
+        n_i= int(n_entero)
+        if n_i == 0:
+            print("Si, 0 es un valor entero, pero no vas a obtener nada mas que una matriz vacia, ¿estas seguro?")
+            n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(0,9): "))
+        break
+    except ValueError:
+        print ("Ingrese un numero valido que sea entero")
+
+#Si el numero introducido esta dentro del rango y es entero Generaremos las matrices
+if n_i in range(0, 9):
     
     # Generamos la matriz si esta en el rango
-    matriz = generar_matriz(n_a)
+    matriz = generar_matriz(n_i)
 
     # Imprimimos la matriz generada
     print("Matriz generada:")
@@ -47,11 +60,11 @@ else:
     print("me temo que el numero introducido no esta dentro del rango")
 #Damos una segunda oportunidad para que ingrese un numero dentro del ranto
 
-    n_a = int(input("Ingrese el tamaño de la matriz dentro del rango(0,9): "))
-    if n_a in range(0, 9):
+    n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(0,9): "))
+    if n_i in range(0, 9):
 
         # Generamos la matriz si esta en el rango
-        matriz = generar_matriz(n_a)
+        matriz = generar_matriz(n_i)
 
         # Imprimir la matriz generada
         print("Matriz generada:")
@@ -69,3 +82,10 @@ suma_columnas = calcular_suma_columnas(matriz)
 # Imprimimos por pantalla la suma de cada fila y columna
 imprimir_suma_filas(suma_filas)
 imprimir_suma_columnas(suma_columnas)
+
+#imprimimos los resultados de las filas y columnas en una nueva lista
+# A continuacion podemos ver los resultados dentro de una lista, por si queremos utilizarlos para un futuro
+print("Resultado de las sumas de las filas dentro de una lista")
+print(suma_filas)
+print("Resultado de las sumas de las columnas dentro de una lista")
+print(suma_columnas)
