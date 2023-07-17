@@ -49,21 +49,18 @@ def imprimir_suma_columnas(suma_columnas):
 
 while True:  # Con este while nos aseguramos que es un numero entero
     n_entero = input(
-        "ingrese el valor de la matriz dentro del rango (1,100) que quiere calcular siendo este un numero entero: ")
+        "ingrese el valor de la matriz dentro del rango (0,100) que quiere calcular siendo este un numero entero: ")
     try:
         n_i = int(n_entero)
-        if n_i <= 0:
-            print("Por favor no introduzca nuemeros negativos ni 0?")
-            n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,100): "))
-            if n_i <= 0 :
-                print("me temo que el numero introducido no esta dentro del rango")
-                sys.exit()
+        if n_i == 0:
+            print("Si, 0 es un valor entero, pero no vas a obtener nada mas que una matriz vacia, ¿estas seguro?")
+            n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(0,101): "))
         break
     except ValueError:
         print("Ingrese un numero valido que sea entero")
 
 # Si el numero introducido esta dentro del rango y es entero Generaremos las matrices
-if n_i in range(1, 100):
+if n_i in range(0, 9):
 
     # Generamos la matriz si esta en el rango
     matriz = generar_matriz(n_i)
@@ -75,25 +72,9 @@ else:
     print("me temo que el numero introducido no esta dentro del rango")
     # Damos una segunda oportunidad para que ingrese un numero dentro del ranto
 
-    n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,100): "))
+    n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(0,102): "))
 
-    while True:  # Con este while nos aseguramos que es un numero entero
-        n_entero = input(
-            "ingrese el valor de la matriz dentro del rango (1,100) que quiere calcular siendo este un numero entero: ")
-        try:
-            n_i = int(n_entero)
-            if n_i <= 0:
-                print("Por favor no introduzca nuemeros negativos ni 0?")
-                n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,100): "))
-                if n_i <= 0:
-                    print("me temo que el numero introducido no esta dentro del rango")
-                    sys.exit()
-            break
-        except ValueError:
-            print("Ingrese un numero valido que sea entero")
-
-
-    if n_i in range(1, 100):
+    if n_i in range(0, 9):
 
         # Generamos la matriz si esta en el rango
         matriz = generar_matriz(n_i)
@@ -101,13 +82,10 @@ else:
         # Imprimir la matriz generada
         print("Matriz generada:")
         imprimir_matriz(matriz)
- # Si el usuario persiste en dar un numero fuera del rango entonces acabamos el programa
+    # Si el usuario persiste en dar un numero fuera del rango entonces acabamos el programa
     else:
-        print("me temo que el numero introducido no esta dentro del rango")
+        print("Entiendo que no quieres hacerme caso")
         sys.exit()
-       
-
-
 
 # Calculamos la suma de cada fila y columna
 suma_filas = calcular_suma_filas(matriz)

@@ -54,7 +54,7 @@ while True:  # Con este while nos aseguramos que es un numero entero
         n_i = int(n_entero)
         if n_i <= 0:
             print("Por favor no introduzca nuemeros negativos ni 0?")
-            n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,100): "))
+            n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,101): "))
             if n_i <= 0 :
                 print("me temo que el numero introducido no esta dentro del rango")
                 sys.exit()
@@ -75,7 +75,7 @@ else:
     print("me temo que el numero introducido no esta dentro del rango")
     # Damos una segunda oportunidad para que ingrese un numero dentro del ranto
 
-    n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,100): "))
+    n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,102): "))
 
     while True:  # Con este while nos aseguramos que es un numero entero
         n_entero = input(
@@ -84,7 +84,7 @@ else:
             n_i = int(n_entero)
             if n_i <= 0:
                 print("Por favor no introduzca nuemeros negativos ni 0?")
-                n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,100): "))
+                n_i = int(input("Ingrese el tamaño de la matriz dentro del rango(1,101): "))
                 if n_i <= 0:
                     print("me temo que el numero introducido no esta dentro del rango")
                     sys.exit()
@@ -105,7 +105,7 @@ else:
     else:
         print("me temo que el numero introducido no esta dentro del rango")
         sys.exit()
-       
+        # Damos una segunda oportunidad para que ingrese un numero dentro del ranto
 
 
 
